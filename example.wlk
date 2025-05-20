@@ -1,5 +1,19 @@
-object dependencia {
-  
+class dependencia {
+  const flota = []
+  var property empleados = 0
+  method agregarAFlota(rodado){flota.add(rodado)}
+
+  method quitarDeFlota(rodado){flota.remove(rodado)}
+
+  method pesoTotalFlota(){flota.sum({r=>r.peso()})}
+
+  method estaBienEquipada(){return self.tieneAlMenos3Rodados() && self.todosVanAlMenosA100()}
+  method tieneAlMenos3Rodados(){return flota.size() > 3}
+  method todosVanAlMenosA100(){return flota.all({r=>r.velocidadMaxima() >= 100})}
+
+  method capacidadTotalEnColor(color){self.filtrarPorColor(color).sum({r=>r.capacidad()})}
+  method filtrarPorColor(color){flota.filter({r=>r.color() == color})}
+
 }
 
 class Corsa {
