@@ -2,8 +2,12 @@ import example.pepita
 
 describe "group of tests for pepita" {
 
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+  test "new Corsa(color = "rojo") --- const listaDeAutos = [new Corsa(color ="rojo")] --- listaDeAutos.add(new Corsa(color = "rojo"))" {
   }
 
+  test "const primerCorsa = listaDeAutos.first() // listaDeAutos.get(0)"
+
+  test "const new Especial1(capacidad=5, peso=100, velocidadMaxima=120, color="rojo")"
+
+  test "const new Especial1(capacidad=5, peso=100, velocidadMaxima=180, color="azul")"
 }
