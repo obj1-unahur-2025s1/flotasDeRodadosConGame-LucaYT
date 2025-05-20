@@ -1,13 +1,45 @@
 import example.pepita
 
-describe "group of tests for pepita" {
 
-  test "new Corsa(color = "rojo") --- const listaDeAutos = [new Corsa(color ="rojo")] --- listaDeAutos.add(new Corsa(color = "rojo"))" {
+describe "test de rodados" {
+  //new Corsa(color = "rojo") --- const listaDeAutos = [new Corsa(color ="rojo")] --- listaDeAutos.add(new Corsa(color = "rojo"))
+  //const primerCorsa = listaDeAutos.first() // listaDeAutos.get(0)
+  //const new Especial1(capacidad=5, peso=100, velocidadMaxima=120, color="rojo")
+  //const new Especial1(capacidad=5, peso=100, velocidadMaxima=180, color="azul")
+  const deportes = new Dependencia(empleados = 45)
+  const cultura = new Dependencia(empleados = 31)
+  const cachito = new Corsa(color="rojo")
+
+
+
+  method initialize(){
+    deportes.agregarAFlota(cachito)
+    deportes.agregarAFlota(new Corsa(color="azul"))
+    deportes.agregarAFlota(new Corsa(color="verde"))
+    deportes.agregarAFlota(new Kwid(tieneTanqueAdicional=true))
+    deportes.agregarAFlota(new Especial(capacidad=5, velocidadMaxima=160, peso=1200, color="beige"))
+    cultura.agregarAFlota(cachito)
+    cultura.agregarAFlota(new Kwid(tieneTanqueAdicional=true))
+    cultura.agregarAFlota(new Kwid(tieneTanqueAdicional=true))
+    cultura.agregarAFlota(new Kwid(tieneTanqueAdicional=false))
+    traffic.interior(popular)
+    traffic.motor(bataton)
+    cultura.agregarAFlota(traffic)
   }
 
-  test "const primerCorsa = listaDeAutos.first() // listaDeAutos.get(0)"
+  test "deportes"{
+    assert.equals(1300+1300+1300+1350+1200, deportes.pesoTotalFlota())
+    assert.that(deportes.estaBienEquipada())
+    assert.that(deportes.esGrande())
+    assert.equals(99999, deportes.capacidadFaltante())
+    assert.equals(deportes.capacidadTotalEnColor(azul), 7)
+  }
 
-  test "const new Especial1(capacidad=5, peso=100, velocidadMaxima=120, color="rojo")"
-
-  test "const new Especial1(capacidad=5, peso=100, velocidadMaxima=180, color="azul")"
+  test "cultura"{
+    assert.equals(1300+1350+1350+1200+5500, cultura.pesoTotalFlota())
+    assert.that(cultura.estaBienEquipada())
+    assert.equals(cultura.capacidadTotalEnColor(azul), 99999)
+    assert.that(cultura.esGrande())
+    assert.equals(cultura.capacidadFaltante(), 99999)
+  }
 }
